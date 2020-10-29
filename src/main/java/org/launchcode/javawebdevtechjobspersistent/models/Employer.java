@@ -9,10 +9,12 @@ public class Employer extends AbstractEntity {
     @Size(max = 255)
     private String location;
 
-    public Employer (String name, String location) {
+    public Employer (String location) {
 //        this.name = name;
         this.location = location;
     }
+
+    public Employer() {}
 
     public String getLocation() {
         return location;
