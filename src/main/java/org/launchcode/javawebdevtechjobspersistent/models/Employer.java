@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class Employer extends AbstractEntity {
 
-    @Size(max = 255)
+    @Size(max = 255, message = "The length of the name of the location must be under 255 characters")
     private String location;
 
     public Employer (String location) {

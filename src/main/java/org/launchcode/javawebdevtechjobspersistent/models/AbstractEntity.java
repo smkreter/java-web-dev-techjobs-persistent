@@ -16,7 +16,7 @@ public abstract class AbstractEntity {
     private int id;
 
     @NotBlank(message = "You must enter a name")
-    @Size(max = 255)
+    @Size(max = 255, message = "You must enter a name of ordinary length")
     private String name;
 
     public int getId() {
