@@ -18,6 +18,17 @@ public class SkillController {
     @Autowired
     private SkillRepository skillRepository;
 
+//    @GetMapping
+//    public String displayAllSkills(Model model) {
+//        model.addAttribute("skills", skillRepository.findAll());
+//        return "skills/index";
+//    }
+
+    @GetMapping
+    public String displayAllSkills(Model model) {
+        model.addAttribute("skills", skillRepository.findAll());
+        return "skills/index";
+    }
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
@@ -26,7 +37,7 @@ public class SkillController {
     }
 
     @PostMapping("add")
-    public String processAddEmployerForm(@ModelAttribute @Valid Skill newSkill,
+    public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill,
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
@@ -40,10 +51,10 @@ public class SkillController {
     public String displayViewSkill(Model model, @PathVariable int skillId) {
 
 //        Optional optEmployer = null; (this is how the code came from LC)
-        Optional optEmployer = skillRepository.findById(skillId);
-        if (optEmployer.isPresent()) {
-            Skill aSkill = (Skill) optEmployer.get();
-            model.addAttribute("employer", aSkill);
+        Optional optSkill = skillRepository.findById(skillId);
+        if (optSkill.isPresent()) {
+            Skill aSkill = (Skill) optSkill.get();
+            model.addAttribute("skill", aSkill);
             return "skills/view";
         } else {
             return "redirect:../";
