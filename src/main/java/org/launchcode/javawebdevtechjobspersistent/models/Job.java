@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Job extends AbstractEntity {
@@ -11,8 +12,11 @@ public class Job extends AbstractEntity {
 //
 //    private String name;
 
-    private String employer;
-    private String skills;
+    @ManyToOne
+    @NotBlank(message = "Employer is required")
+    private Employer employer;
+
+    private Skill skills;
 
     public Job() {
     }
@@ -33,19 +37,19 @@ public class Job extends AbstractEntity {
 //        this.name = name;
 //    }
 
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public String getSkills() {
+    public Skill getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(Skill skills) {
         this.skills = skills;
     }
 }
