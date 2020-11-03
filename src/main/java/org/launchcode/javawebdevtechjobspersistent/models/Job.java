@@ -16,15 +16,19 @@ public class Job extends AbstractEntity {
     @NotBlank(message = "Employer is required")
     private Employer employer;
 
+    //should it be skills or skill? is this maybe the persistence problem
+//    private Skill skills;
+    @ManyToOne
     private Skill skills;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer anEmployer, Skill someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
+        // ??       this.skills = someSkills;
     }
 
     // Getters and setters.
