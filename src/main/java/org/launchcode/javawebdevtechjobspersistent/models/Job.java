@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Optional;
 
 @Entity
 public class Job extends AbstractEntity {
@@ -13,7 +14,7 @@ public class Job extends AbstractEntity {
 //    private String name;
 
     @ManyToOne
-    @NotBlank(message = "Employer is required")
+//    @NotBlank(message = "Employer is required")
     private Employer employer;
 
     //should it be skills or skill? is this maybe the persistence problem
