@@ -1,5 +1,6 @@
 package org.launchcode.javawebdevtechjobspersistent.controllers;
 
+import org.launchcode.javawebdevtechjobspersistent.models.Employer;
 import org.launchcode.javawebdevtechjobspersistent.models.Job;
 import org.launchcode.javawebdevtechjobspersistent.models.data.EmployerRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.JobRepository;
@@ -55,9 +56,12 @@ public class HomeController {
             return "add";
         }
 
-        newJob.setEmployer(employerRepository.findById(employerId));
+//        newJob.setEmployer(employerRepository.findById(employerId));
+//        Employer employerToUpdate = employerRepository.findById(employerId);
+//        employerToUpdate.addJob(newJob);
+//        employerRepository.findById(employerId).addJob(newJob);
 
-
+        jobRepository.save(newJob);
         return "redirect:";
     }
 
