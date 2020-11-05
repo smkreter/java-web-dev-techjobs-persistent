@@ -23,17 +23,24 @@ public class Job extends AbstractEntity {
 //    private Skill skills;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private List<Skill> skills;
+    private Skill skills;
 
     public Job() {
     }
 
-    public Job(Employer anEmployer, List<Skill> someSkills) {
+    public Job(Employer anEmployer, Skill someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
         // ??       this.skills = someSkills;
     }
+
+//    public Job(Employer anEmployer) {
+//        super();
+//        this.employer = anEmployer;
+////        this.skills = someSkills;
+//        // ??       this.skills = someSkills;
+//    }
 
     // Getters and setters.
 //
@@ -53,11 +60,11 @@ public class Job extends AbstractEntity {
         this.employer = employer;
     }
 
-    public List<Skill> getSkills() {
+    public Skill getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(Skill skills) {
         this.skills = skills;
     }
 }
