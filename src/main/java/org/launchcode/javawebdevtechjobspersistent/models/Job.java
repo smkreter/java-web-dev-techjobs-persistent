@@ -23,7 +23,7 @@ public class Job extends AbstractEntity {
 //    private Skill skills;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull(message = "choose a skill")
+//    @NotNull(message = "choose a skill")
     private Skill skills;
 
     public Job() {
