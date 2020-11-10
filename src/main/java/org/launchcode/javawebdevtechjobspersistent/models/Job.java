@@ -16,22 +16,20 @@ public class Job extends AbstractEntity {
 //    private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull(message = "Employer is required")
     private Employer employer;
 
     //should it be skills or skill? is this maybe the persistence problem
 //    private Skill skills;
 
     @ManyToOne(cascade = CascadeType.ALL)
-//    @NotNull(message = "choose a skill")
     private Skill skills;
 
     public Job() {
     }
 
-    public Job(Employer anEmployer, Skill someSkills) {
+    public Job(Employer employer, Skill someSkills) {
         super();
-        this.employer = anEmployer;
+        this.employer = employer;
         this.skills = someSkills;
         // ??       this.skills = someSkills;
     }

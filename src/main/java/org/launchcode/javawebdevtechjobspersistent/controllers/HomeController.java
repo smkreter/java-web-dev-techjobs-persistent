@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by LaunchCode
@@ -57,7 +58,13 @@ public class HomeController {
             model.addAttribute("skills", skillRepository.findAll());
             return "add";
         }
-        jobRepository.save(newJob);
+        Optional<Employer> employerToSet = employerRepository.findById(employerId);
+        if (employerToSet.isPresent()) {
+            newJob.setEmployer(employerToSet.get());
+            // get the employer out of the optional with the dot get
+            jobRepository.save(newJob);
+        }
+//        jobRepository.save(newJob);
         return "redirect:";
     }
 
