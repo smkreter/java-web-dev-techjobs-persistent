@@ -21,13 +21,13 @@ public class Job extends AbstractEntity {
     //should it be skills or skill? is this maybe the persistence problem
 //    private Skill skills;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Skill skills;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Skill> skills;
 
     public Job() {
     }
 
-    public Job(Employer employer, Skill someSkills) {
+    public Job(Employer employer, List<Skill> someSkills) {
         super();
         this.employer = employer;
         this.skills = someSkills;
@@ -59,11 +59,11 @@ public class Job extends AbstractEntity {
         this.employer = employer;
     }
 
-    public Skill getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Skill skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 }
