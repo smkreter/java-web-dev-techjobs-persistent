@@ -69,8 +69,8 @@ public class HomeController {
             jobRepository.save(newJob);
         }
 //        jobRepository.save(newJob);
-        model.addAttribute("title", skills.toString());
-        return "add";
+//        model.addAttribute("title", skills.toString());
+        return "redirect:./";
     }
 
     @GetMapping("view/{jobId}")
